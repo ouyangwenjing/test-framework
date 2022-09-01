@@ -32,7 +32,7 @@ urllib3         1.25.7
 
 # 3.项目结构
 ```
-python-ui-auto-test
+test-framework
     - api-test（api 测试包，未添加内容）
     - ui-test（ui 测试包）
         - base（与项目初始化配置相关）

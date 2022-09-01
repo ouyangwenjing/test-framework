@@ -12,7 +12,7 @@ Welcome to **Watch**, **Star** and **Fork**！
 ## Hierarchy
 
 ```
-python-ui-auto-test
+test-framework
     - api-test（api test package, to be continue...）
     - ui-test（ui test package）
         - base（related to the project initialization configuration）
@@ -38,9 +38,6 @@ python-ui-auto-test
 External Libraries
 Scratches and Consoles
 ```
-
-![framework](https://github.com/abcnull/Image-Resources/blob/master/python-ui-auto-test/1575304456217.png)
-
 
 ## Framework Overview
 
@@ -118,7 +115,6 @@ Scratches and Consoles
 
 - In resource package, config realized that driver package contains all mainstream drivers, and all version info are in config.ini file
 
-  ![框架概述](https://github.com/abcnull/Image-Resources/blob/master/python-ui-auto-test/1575305550583.png)
 
 - Utiltiy package ccontains .ini file reader, log tool, mysql tool, redis tool, report generator, screenshot tool, text tool,  local storage tool
 
@@ -146,7 +142,6 @@ The features:
 
 Environment could be SIT,  UAT or PROD, so we can modify parameters in config.ini to control the running way of the suites and cases. You guys can also consider to write the parameters in`run_all.py` for the same purpose. There is another parameter besides enviroment parameter - language. It means that you can select specified language and to control data package using which data, if you amend code in data package a little bit. Except these parameters, you can also add other parameters unused
 
-![ParamUnittest](https://github.com/abcnull/Image-Resources/blob/master/python-ui-auto-test/1575369275406.png)
 
 ## config.ini
 
@@ -162,7 +157,6 @@ Contains:
 
 Follew-up user can add oracle, sqlserver, mongoDB and other configuration in .ini file to make theproject perfect.Don't forget to add code in Assembler!
 
-![config.ini](https://github.com/abcnull/Image-Resources/blob/master/python-ui-auto-test/1575369314016.png)
 
 ## Utility
 
@@ -181,8 +175,6 @@ Follew-up user can add oracle, sqlserver, mongoDB and other configuration in .in
 - TextTool: just for a startup text
 
 - ThreadLocalStorage: store thread and Assembler object in a static dictionary through key-value pairs in order to take out the data in any test case
-
-  ![工具类](https://github.com/abcnull/Image-Resources/blob/master/python-ui-auto-test/1575369333647.png)
 
 ## Bottom Line
 

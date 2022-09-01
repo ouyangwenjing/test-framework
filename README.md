@@ -9,7 +9,7 @@ python + selenium + unittest + PO + BeautifulReport + redis + mysql + ParamUnitt
 ## 框架结构
 
 ```
-python-ui-auto-test
+test-framework
     - api-test（api 测试包，未添加内容）
     - ui-test（ui 测试包）
         - base（与项目初始化配置相关）
@@ -115,7 +115,6 @@ Scratches and Consoles
 
 - 资源文件夹中 config 实现了项目完全依靠参数来配置运行，driver 文件夹中目前存放了所有主流驱动，版本信息请见 config.ini 中有介绍
 
-  ![框架概述](https://github.com/abcnull/Image-Resources/blob/master/python-ui-auto-test/1575305550583.png)
 
 - 工具类中包括配置文件读取器，log 日志工具，mysql 连接工具，redis 连接池工具，报告生成工具，截图工具，文本工具，线程本地存储工具
 - `run_all.py`可以单线程运行所有测试用例，`run_all_mutithread`则可以多线程运行测试用例，但是要注意的是多线程运行后测试报告还是无法汇总成一个报告，这个得对 BeautifulReport 进行二次开发才可以解决
@@ -142,7 +141,6 @@ Scratches and Consoles
 
 由于待测的环境可能是 SIT 或是 UAT 或是 PROD，所以可以通过 config.ini 修改参数的方式来往 case 中的类上参数中传值，进而传进类中的测试方法中。小伙伴们也可以考虑下二次开发直接在`run_all.py`中把参数传进具体的 case 里。还有一个参数是语言参数，对于多语言环境，可以修改此参数进而可以选择 data 中的指定数据。小伙伴们当然也可以根据项目需求自己增加自己需要的参数
 
-![ParamUnittest 外部传参](https://github.com/abcnull/Image-Resources/blob/master/python-ui-auto-test/1575369275406.png)
 
 ## config.ini 项目配置
 
@@ -158,7 +156,6 @@ Scratches and Consoles
 
 后续小伙伴可以添加 oracle，sqlserver，mongoDB 等的配置参数进去，记得同时要给 Assembler 装配器增添代码
 
-![config.ini 项目配置](https://github.com/abcnull/Image-Resources/blob/master/python-ui-auto-test/1575369314016.png)
 
 ## 工具类
 
@@ -178,14 +175,7 @@ Scratches and Consoles
 
 - ThreadLocalStorage 用于将线程号和 Assembler 装配器通过键值对形式存进一个静态字典中，方便在不同 case 中取用装配器中的驱动
 
-  ![工具类](https://github.com/abcnull/Image-Resources/blob/master/python-ui-auto-test/1575369333647.png)
 
 ## 写在后头
 
-项目仍有许多值得修改优化的地方，望 commit 宝贵意见，更好完善框架内容！
-再次感谢！
 
-- 框架作者：**abcnull**
-- csdn 博客：**https://blog.csdn.net/abcnull**
-- github：**https://github.com/abcnull**
-- e-mail：**abcnull@qq.com**
