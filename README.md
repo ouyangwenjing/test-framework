@@ -1,18 +1,10 @@
-**[English](https://github.com/abcnull/python-ui-auto-test/blob/master/README_en.md) | [博客](https://blog.csdn.net/abcnull/article/details/103379143)**
-
 [TOC]
-# python-ui-auto-test
+# test-framework
 
 python + selenium + unittest + PO + BeautifulReport + redis + mysql + ParamUnittest + 多线程 + 截图/日志 + 多浏览器支持 + RemoteWebDriver +文件读取 + 全参数化构建
 
-搭建过程中非常感谢李鹏飞大侠的技术支持！后续有问题请在如下途径私聊联系！
 
 欢迎大家 **Watch**，**Star** 和 **Fork**！
-
-- 框架作者：**abcnull**
-- csdn 博客：**https://blog.csdn.net/abcnull**
-- github：**https://github.com/abcnull**
-- e-mail：**abcnull@qq.com**
 
 ## 框架结构
 
@@ -43,8 +35,6 @@ python-ui-auto-test
 External Libraries
 Scratches and Consoles
 ```
-
-![框架结构](https://github.com/abcnull/Image-Resources/blob/master/python-ui-auto-test/1575304456217.png)
 
 
 ## 框架概述
