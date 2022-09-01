@@ -1,4 +1,3 @@
-**[中文](https://github.com/abcnull/python-ui-auto-test/blob/master/README.md) | [Blog](https://blog.csdn.net/abcnull/article/details/103379143)**
 
 [TOC]
 # python-ui-auto-test
@@ -9,10 +8,6 @@ Thanks to Pengfei Li for his technical support during the construction process! 
 
 Welcome to **Watch**, **Star** and **Fork**！
 
-- Author: **abcnull**
-- Csdn Blog: **https://blog.csdn.net/abcnull**
-- GitHub: **https://github.com/abcnull**
-- E-Mail: **abcnull@qq.com**
 
 ## Hierarchy
 
@@ -195,8 +190,3 @@ There is much about this project to optimized. I sincerely holp for your **Watch
 Thanks again!
 
 : )
-
-- Author: **abcnull**
-- Csdn Blog: **https://blog.csdn.net/abcnull**
-- GitHub: **https://github.com/abcnull**
-- E-Mail: **abcnull@qq.com**
