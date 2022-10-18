@@ -48,7 +48,6 @@ class TestDzzCase(unittest.TestCase):
     # 第一个测试点
     @BeautifulReport.add_test_img(ScreenshotTool().get_img_name("../../report/img/force_test_1_TestDzzCase"))
     def test_1_TestDzzCase(self):
-
         # 初始化首页
         dzz_page = DzzPage(self.driver)
         # 获取党组织管理页面

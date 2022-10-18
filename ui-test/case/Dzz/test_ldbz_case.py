@@ -55,18 +55,24 @@ class TestLdbzCase(unittest.TestCase):
         # 休眠 5 秒方便观察页面运行效果
         time.sleep(2)
 
-    # 新增领导班子
+    # 新增换届信息
     @ddt.data(*cases)
     def test_2_TestLdbzCase(self, case):
         time.sleep(2)
-        # 新增换届信息弹窗
-        self.ldbz_page.create_hjxx_btn()
         # 提取测试数据
         params = eval(case['data'])
         title = case['title']
-        print(params, type(params), title, type(title))
-        # 调用新增换届信息方法
+        expected = case['expected']
+        print(params, type(params), title, type(title), expected, type(expected))
+        # 调用新增换届方法
         self.ldbz_page.create_hjxx(**params)
+
+    # 删除换届信息
+    def test_3_TestLdbzCase(self):
+        time.sleep(3)
+        # 删除换届信息
+        self.ldbz_page.delete_hjxx()
+        time.sleep(5)
 
 
 # 当前用例程序入口

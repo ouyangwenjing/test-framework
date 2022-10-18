@@ -24,8 +24,10 @@ class HandleExcelTool:
         cases = []
         for item in res[1:]:
             data = [i.value for i in item]
-            dic = dict(zip(title, data))
-            cases.append(dic)
+            if not data[0] is None:
+                dic = dict(zip(title, data))
+                cases.append(dic)
+        print(cases)
         # 返回读出来的数据
         return cases
 

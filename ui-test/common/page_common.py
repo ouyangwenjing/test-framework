@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -81,3 +82,19 @@ class PageCommon(BrowserCommon):
     def locator_element(self, loc):
         # 定位元素
         return self.driver.find_element(loc)
+
+    # 获取弹窗提示text
+    def alert_text(self, xpath):
+        return self.find_element(By.XPATH, xpath).text
+
+    def isElementPresent(self, by, value):
+        try:
+            self.driver.find_element(by=by, value=value)
+        except NoSuchElementException:
+            # 打印异常信息
+            print(NoSuchElementException)
+            # 发生异常，说明页面中未找到该元素，返回False
+            return False
+        else:
+            # 无异常，说明在页面中找到了该元素，返回True
+            return True

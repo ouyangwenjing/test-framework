@@ -1,6 +1,8 @@
 
 import time
 import unittest
+
+import ddt
 import paramunittest
 import os
 from BeautifulReport import BeautifulReport
@@ -8,6 +10,7 @@ from BeautifulReport import BeautifulReport
 from base.assembler import Assembler
 from page.login_page import LoginPage
 from util.config_reader import config
+from util.handle_excel_tool import HandleExcelTool
 from util.log_tool import start_info, end_info, log
 from util.screenshot_tool import ScreenshotTool
 
@@ -18,7 +21,14 @@ from util.screenshot_tool import ScreenshotTool
     {"lan": config['project']["lan"], "env": config['project']["env"]}
 )
 # 登录流程用例测试
+@ddt.ddt
 class TestLoginCase(unittest.TestCase):
+
+    # 读取测试case
+    xl_dir = os.path.dirname(os.path.dirname(__file__)) + '/data/test_login.xlsx'
+    excel = HandleExcelTool(xl_dir, 'login')
+    login_cases = excel.read_data()
+    print(login_cases)
 
     # 出错需要截图时此方法自动被调用
     def save_img(self, img_name):
@@ -47,31 +57,28 @@ class TestLoginCase(unittest.TestCase):
         sql = "SELECT username,mobile,party_org_id FROM system_users WHERE tenant_id  = '1'"
         log().info(self.mysql_tool.execute(sql))
 
-    # # @AfterTest
-    # def tearDown(self):
-    #     # 结束的 log 信息
-    #     end_info()
-    #
-    #     # 装配器卸载
-    #     self.assembler.disassemble_all()
+    # @AfterTest
+    def tearDown(self):
+        # 结束的 log 信息
+        end_info()
 
-    # 第一个测试点
+        # 装配器卸载
+        self.assembler.disassemble_all()
+
+    # 登录测试
+    @ddt.data(*login_cases)
+    @ddt.unpack
     @BeautifulReport.add_test_img(ScreenshotTool().get_img_name("../../report/img/force_test_1_TestLoginCase"))
-    def test_1_TestLoginCase(self):
-        # log 信息
-        log().info(f"党组织测试第一个用例，环境" + self.env + "语言" + self.lan)
-
+    def test_1_TestLoginCase(self, xh, sjhm, mm, yzm):
+        print(xh, sjhm, mm, yzm)
         # 初始化登录页面
         login_page = LoginPage(self.driver)
-
         # 开启登录首页
         login_page.jump_to()
         # 清空输入缓存
         login_page.clear_user()
         # 输入账号密码登录
-        login_page.login()
-        # 休眠 5 秒方便观察页面运行效果
-        time.sleep(1)
+        login_page.login(sjhm, mm, yzm)
 
         # # 强行截图
         # ScreenshotTool().save_img(self.driver, "force_test_1_TestLoginCase")

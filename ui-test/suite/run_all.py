@@ -19,8 +19,8 @@ if __name__ == "__main__":
     loader = unittest.TestLoader()
 
     suites.addTests(loader.loadTestsFromModule(test_login_case))
-    suites.addTests(loader.loadTestsFromModule(test_dzz_case))
-    suites.addTests(loader.loadTestsFromModule(test_ldbz_case))
+    # suites.addTests(loader.loadTestsFromModule(test_dzz_case))
+    # suites.addTests(loader.loadTestsFromModule(test_ldbz_case))
 
     # 报告生成器，运行用例并生成报告，对 BeautifulReport 套了一层外壳
     ReportTool(suites).run(filename=report_name, description='demo', report_dir=report_path, theme="theme_cyan")
