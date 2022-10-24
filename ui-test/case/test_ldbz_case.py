@@ -2,11 +2,8 @@ import os
 import time
 import unittest
 import ddt
-import paramunittest
 import threading
-from BeautifulReport import BeautifulReport
-from page.Dzz.ldbz_page import LdbzPage
-from util.config_reader import config
+from page.ldbz_page import LdbzPage
 from util.log_tool import start_info, end_info
 from util.screenshot_tool import ScreenshotTool
 from util.thread_local_storage import ThreadLocalStorage

@@ -1,7 +1,6 @@
 import os
 import unittest
 from case import test_login_case
-from case.Dzz import test_dzz_case,test_ldbz_case
 from util.config_reader import config
 from util.report_tool import ReportTool
 

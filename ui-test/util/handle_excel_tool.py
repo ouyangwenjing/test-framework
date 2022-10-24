@@ -18,6 +18,7 @@ class HandleExcelTool:
         # 读取表
         sheet = workbook[self.sheetname]
         res = list(sheet.rows)
+        nrows = sheet.max_row
         # 获取第一行表头
         title = [i.value for i in res[0]]
         # 遍历第一行之外的其他行
@@ -33,14 +34,14 @@ class HandleExcelTool:
 
 
 if __name__ == '__main__':
-    xl_dir = os.path.dirname(os.path.dirname(__file__))+'/data/test_create_ldbz.xlsx'
+    xl_dir = os.path.dirname(os.path.dirname(__file__))+'/data/test_login.xlsx'
     print(xl_dir)
-    he = HandleExcelTool(xl_dir, 'Sheet1')
-    print(he.read_data())
-    case = he.read_data()
-    print(type(he.read_data()))
-    expected = eval(case[0]['data'])
-    bzjs = expected['bzjs']
-    print(bzjs, type(bzjs))
-    print(expected, type(expected))
+    xl = HandleExcelTool(xl_dir, 'login')
+    print(xl.read_data())
+    # case = xl.read_data()
+    # print(type(xl.read_data()))
+    # expected = eval(case[0]['data'])
+    # bzjs = expected['bzjs']
+    # print(bzjs, type(bzjs))
+    # print(expected, type(expected))
 

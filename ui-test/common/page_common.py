@@ -70,6 +70,8 @@ class PageCommon(BrowserCommon):
         :param value: 输入值
         :return: 返回 send_keys 原生方法
         """
+        # 清空输入框
+        self.driver.find_element(By.XPATH, xpath).clear()
         # 显示等待元素可点击
         WebDriverWait(self.driver, 10, 0.1).until(expected_conditions.element_to_be_clickable(("xpath", xpath)))
         # 输入框输入数据
@@ -86,6 +88,10 @@ class PageCommon(BrowserCommon):
     # 获取弹窗提示text
     def alert_text(self, xpath):
         return self.find_element(By.XPATH, xpath).text
+
+    # 获取页面的URL
+    def get_current_url(self):
+        return self.driver.current_url
 
     def isElementPresent(self, by, value):
         try:

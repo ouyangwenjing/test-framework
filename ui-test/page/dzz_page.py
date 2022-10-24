@@ -1,5 +1,5 @@
 from common.page_common import PageCommon
-from locator.Dzz.dzz_locator import DzzLocator
+from locator.dzz_locator import DzzLocator
 from data.dzz_data import DzzData
 import time
 

@@ -1,8 +1,6 @@
-from selenium.webdriver.common.by import By
-
 from common.page_common import PageCommon
 import time
-from locator.Dzz.ldbz_locator import LdbzLocator
+from locator.ldbz_locator import LdbzLocator
 
 
 # 领导班子
