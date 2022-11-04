@@ -26,11 +26,14 @@ class TestLoginCase(unittest.TestCase):
 
     # 读取测试case
     xl_dir = os.path.dirname(os.path.dirname(__file__)) + '/data/test_login.xlsx'
+    # 读取登录成功case
     login_suc_excel = HandleExcelTool(xl_dir, 'login_success')
-    login_error_excel = HandleExcelTool(xl_dir, 'login_error')
-    login_required_excel = HandleExcelTool(xl_dir, 'login_required_item')
     login_suc_cases = login_suc_excel.read_data()
+    # 读取登录校验失败case
+    login_error_excel = HandleExcelTool(xl_dir, 'login_error')
     login_error_cases = login_error_excel.read_data()
+    # 读取登录必填项校验失败case
+    login_required_excel = HandleExcelTool(xl_dir, 'login_required_item')
     login_required_cases = login_required_excel.read_data()
     print(login_suc_cases, login_error_cases, login_required_cases)
 
@@ -72,7 +75,7 @@ class TestLoginCase(unittest.TestCase):
     @unittest.skip
     @ddt.data(*login_suc_cases)
     @ddt.unpack
-    @BeautifulReport.add_test_img(ScreenshotTool().get_img_name("../../report/img/force_test_1_TestLoginCase"))
+    @BeautifulReport.add_test_img(ScreenshotTool().get_img_name("test_1_TestLoginSuccessCase"))
     def test_1_TestLoginSuccessCase(self, xh, sjhm, mm, yzm):
         # print(xh, sjhm, mm, yzm)
         # 初始化登录页面
@@ -80,25 +83,25 @@ class TestLoginCase(unittest.TestCase):
         # 开启登录首页
         login_page.jump_to()
         # 输入账号密码登录
-        indexurl = login_page.login_success(sjhm, mm, yzm)
+        index_url = login_page.login_success(sjhm, mm, yzm)
         # 登录成功断言
         try:
-            self.assertEqual(indexurl, "http://nginx.test.tyyd.com:8000/index")
-            print("登录成功，正确跳转到主页面" + indexurl)
+            self.assertEqual(index_url, "http://nginx.test.tyyd.com:8000/index")
+            print("登录成功，正确跳转到主页面" + index_url)
         except AssertionError as msg:
-            print("没有跳转到正确页面，当前跳转的地址为" + indexurl + "\n报错信息如下" + format(msg))
+            print("没有跳转到正确页面，当前跳转的地址为" + index_url + "\n报错信息如下" + format(msg))
             '''当断言失败时会抛出异常测试用例执行失败,输出提示信息后重新将异常抛出，即raise，
             若不重新抛出，用例则永远是显示执行成功的，因为它把异常处理掉了'''
             raise msg
 
         # # 强行截图
-        # ScreenshotTool().save_img(self.driver, "force_test_1_TestLoginCase")
+        # ScreenshotTool().save_img(self.driver, "force_test_1_TestLoginSuccessCase")
 
     # 错误手机号、密码、验证码登录测试
     @unittest.skip
     @ddt.data(*login_suc_cases)
     @ddt.unpack
-    @BeautifulReport.add_test_img(ScreenshotTool().get_img_name("../../report/img/force_test_1_TestLoginCase"))
+    @BeautifulReport.add_test_img(ScreenshotTool().get_img_name("../../report/img/test_2_TestLoginErrorCase"))
     def test_2_TestLoginErrorCase(self, xh, sjhm, mm, yzm, expected):
         # print(xh, sjhm, mm, yzm, expected)
         # 初始化登录页面
@@ -120,9 +123,10 @@ class TestLoginCase(unittest.TestCase):
     # 手机号、密码、验证码为空登录测试
     @ddt.data(*login_required_cases)
     @ddt.unpack
-    @BeautifulReport.add_test_img(ScreenshotTool().get_img_name("../../report/img/force_test_1_TestLoginCase"))
+    @BeautifulReport.add_test_img(ScreenshotTool().get_img_name("../../report/img"
+                                                                "/test_3_TestLoginRequiredCase"))
     def test_3_TestLoginRequiredCase(self, xh, sjhm, mm, yzm, expected):
-        print(xh, sjhm, mm, yzm, expected, type(sjhm))
+        # print(xh, sjhm, mm, yzm, expected, type(sjhm))
         # 初始化登录页面
         login_page = LoginPage(self.driver)
         # 开启登录首页
@@ -139,6 +143,8 @@ class TestLoginCase(unittest.TestCase):
             self.assertEqual(required_text, expected)
             print("登录失败,断言成功，登录失败原因为" + expected)
         except AssertionError as msg:
+            # 强行截图
+            # ScreenshotTool().save_img(self.driver, "TestLoginCase_0_test_3_TestLoginRequiredCase")
             print("错误提示语与预期结果不一致，请检查" + required_text + "\n报错信息如下" + format(msg))
             '''当断言失败时会抛出异常测试用例执行失败,输出提示信息后重新将异常抛出，即raise，
             若不重新抛出，用例则永远是显示执行成功的，因为它把异常处理掉了'''
