@@ -1,12 +1,11 @@
+import sys
+sys.path.append('..')
+
 import os
 import unittest
 from case import test_login_case
 from util.config_reader import config
 from util.report_tool import ReportTool
-import sys
-
-sys.path.append('..')
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 
 # 报告存放路径
 report_path = os.path.abspath(os.path.dirname(__file__))[
