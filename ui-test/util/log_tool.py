@@ -20,12 +20,12 @@ id_simple_format = '[%(levelname)s][%(asctime)s] %(message)s'
 # 从配置文件取到的日志配置信息
 # 输出日志的名字和绝对路径
 _conf_dir = os.path.dirname(os.path.dirname(__file__))
-print(_conf_dir)
+# print(_conf_dir)
 _conf_file = os.path.join(_conf_dir, 'resource/config/config.ini')
-print(_conf_file)
+# print(_conf_file)
 
 logfile_name = config['log']['logfile_name'] # log文件名
-print(logfile_name)
+# print(logfile_name)
 logfile_path_staff = r'' + os.path.abspath(os.path.dirname(__file__))[
                            :os.path.abspath(os.path.dirname(__file__)).find("test-framework") + len(
                                "test-framework")] + "/ui-test" + config['log'][
