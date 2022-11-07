@@ -1,6 +1,3 @@
-import sys
-sys.path.append('..')
-
 import os
 import unittest
 from case import test_login_case
