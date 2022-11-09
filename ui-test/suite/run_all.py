@@ -9,7 +9,7 @@ from util.report_tool import ReportTool
 #               :os.path.abspath(os.path.dirname(__file__)).find("test-framework") + len(
 #                   "test-framework")] + "/ui-test" + config['html']['htmlfile_path']
 report_path = os.path.abspath(os.path.dirname(__file__)) + config['html']['htmlfile_path']
-# print(report_path)
+print(report_path)
 # 报告名字
 report_name = config['html']["htmlfile_name"]
 
