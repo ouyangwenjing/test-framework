@@ -26,10 +26,13 @@ _conf_file = os.path.join(_conf_dir, 'resource/config/config.ini')
 
 logfile_name = config['log']['logfile_name'] # log文件名
 # print(logfile_name)
-logfile_path_staff = r'' + os.path.abspath(os.path.dirname(__file__))[
-                           :os.path.abspath(os.path.dirname(__file__)).find("test-framework") + len(
-                               "test-framework")] + "/ui-test" + config['log'][
+# logfile_path_staff = r'' + os.path.abspath(os.path.dirname(__file__))[
+#                            :os.path.abspath(os.path.dirname(__file__)).find("test-framework") + len(
+#                                "test-framework")] + "/ui-test" + config['log'][
+#                          'logfile_path'] + logfile_name
+logfile_path_staff = r'' + os.path.abspath(os.path.dirname(__file__)) + config['log'][
                          'logfile_path'] + logfile_name
+print(logfile_path_staff)
 
 # 打到终端的日志级别和格式
 terminal_level = config['log']['terminal_level']
