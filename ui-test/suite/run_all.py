@@ -5,11 +5,10 @@ from util.config_reader import config
 from util.report_tool import ReportTool
 
 # 报告存放路径
-report_path = os.path.abspath(os.path.dirname(__file__))[
-              :os.path.abspath(os.path.dirname(__file__)).find("test-framework") + len(
-                  "test-framework")] + "/ui-test" + config['html']['htmlfile_path']
-path = os.path.abspath(os.path.dirname(__file__))
-print(path)
+# report_path = os.path.abspath(os.path.dirname(__file__))[
+#               :os.path.abspath(os.path.dirname(__file__)).find("test-framework") + len(
+#                   "test-framework")] + "/ui-test" + config['html']['htmlfile_path']
+report_path = os.path.abspath(os.path.dirname(__file__))+ config['html']['htmlfile_path']
 print(report_path)
 # 报告名字
 report_name = config['html']["htmlfile_name"]
