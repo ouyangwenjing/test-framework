@@ -8,7 +8,7 @@ from util.report_tool import ReportTool
 report_path = os.path.abspath(os.path.dirname(__file__))[
               :os.path.abspath(os.path.dirname(__file__)).find("test-framework") + len(
                   "test-framework")] + "/ui-test" + config['html']['htmlfile_path']
-path = os.path.dirname(__file__)
+path = os.path.abspath(os.path.dirname(__file__))
 print(path)
 print(report_path)
 # 报告名字
