@@ -71,10 +71,13 @@ class Assembler:
             # chrome_options.add_argument('--disable-gpu')
 
             # 驱动路径
-            executable_path = os.path.abspath(os.path.dirname(__file__))[
-                              :os.path.abspath(os.path.dirname(__file__)).find("test-framework") + len(
-                                  "test-framework")] + "/ui-test" + config['driver'][
+            # executable_path = os.path.abspath(os.path.dirname(__file__))[
+            #                   :os.path.abspath(os.path.dirname(__file__)).find("test-framework") + len(
+            #                       "test-framework")] + "/ui-test" + config['driver'][
+            #                       "chrome_driver_path"]
+            executable_path = os.path.abspath(os.path.dirname(os.path.dirname(__file__))) + config['driver'][
                                   "chrome_driver_path"]
+            print(executable_path)
             # 如果读取不到 remote_ip 或者 remote_port 就不用远端浏览器
             if config['project']["remote_ip"] == "" or config['project']["remote_port"] == "":
                 self.driver = webdriver.Chrome(executable_path=executable_path, chrome_options=chrome_options)
